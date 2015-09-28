@@ -1,5 +1,5 @@
 #
-wershell_script 'Install IIS' do
+powershell_script 'Install IIS' do
   code 'Add-WindowsFeature Web-Server'
   not_if "(Get-WindowsFeature -Name Web-Server).Installed"
 end

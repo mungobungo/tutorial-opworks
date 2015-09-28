@@ -10,11 +10,11 @@ end
 
 ruby_block "download-object" do
   block do
-    require 'git'
-    URI = 'https://github.com/mungobungo/tutorial-opworks.git'
-    NAME = 'tutorial-opworks'
-    g = Git.clone(URI, NAME, :path => 'c:/temp')
-    FileUtils.cp_r(Dir['c:\temp\site\*'],'c:/inetpub/wwwroot/')
+#    require 'git'
+#    URI = 'https://github.com/mungobungo/tutorial-opworks.git'
+#    NAME = 'tutorial-opworks'
+#    g = Git.clone(URI, NAME, :path => 'c:/temp')
+    FileUtils.cp_r(Dir['c:\temp\tutorial-opworks\site\*'],'c:/inetpub/wwwroot/')
   end
   action :run
 end

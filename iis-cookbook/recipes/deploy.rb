@@ -9,7 +9,7 @@ chef_gem "git" do
 end
 
 cookbook_file "c:/inetpub/wwwroot/default.htm" do
-  source "c:/temp/tutorial-opworks/site/default.htm"
+  source "default.htm"
   action :create
 end
 

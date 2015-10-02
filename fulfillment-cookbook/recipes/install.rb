@@ -10,13 +10,19 @@ powershell_script 'Install chef development kit'
   code "choco install -y chefdk"
 end
 
+
+chef_gem "git" do
+  compile_time false
+  action :install
+end
+
 powershell_script 'Install IIS' do
   code 'Add-WindowsFeature Web-Server'
   not_if "(Get-WindowsFeature -Name Web-Server).Installed"
 end
 
 iis_site 'Default Web Site' do
-	action [:stop]
+	action [:stop, :delete]
 end
 
 iis_site "#{cookbook_name}" do

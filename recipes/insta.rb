@@ -1,17 +1,17 @@
 # encoding: utf-8
-powershell_script 'Install choco'
+powershell_script "Install choco"
   code "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))"
 end
 
-powershell_script 'Install git'
+powershell_script "Install git"
   code "choco install -y  git"
 end
 
-powershell_script 'Install chef development kit'
+powershell_script "Install chef development kit"
   code "choco install -y chefdk"
 end
 
-powershell_script 'Install vim'
+powershell_script "Install vim"
   code "choco install -y vim"
 end
 # after this one 'berks is in the path'

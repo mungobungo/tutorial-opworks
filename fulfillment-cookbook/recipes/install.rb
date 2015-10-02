@@ -11,11 +11,6 @@ powershell_script 'Install chef development kit'
 end
 
 
-chef_gem "git" do
-  compile_time false
-  action :install
-end
-
 powershell_script 'Install IIS' do
   code 'Add-WindowsFeature Web-Server'
   not_if "(Get-WindowsFeature -Name Web-Server).Installed"

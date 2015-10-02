@@ -22,7 +22,7 @@ git 'c:/chef/fulfillment-cookbook' do
 end
 
 powershell_script 'Install chef development kit'
-  code "cd c:/chef/fulfillment-cookbook"
+  cwd "c:/chef/fulfillment-cookbook"
   code "berks install"
 end
 

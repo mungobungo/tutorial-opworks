@@ -1,22 +1,27 @@
-#
-# powershell_script 'Install choco'
-#   code "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))"
-# end
-# powershell_script 'Install git'
-#   code "choco install -y  git"
-# end
 
-# powershell_script 'Install chef development kit'
-#   code "choco install -y chefdk"
-# end
+powershell_script 'Install choco'
+  code "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))"
+end
+powershell_script 'Install git'
+  code "choco install -y  git"
+end
 
-# powershell_script 'Install IIS' do
-#   code 'Add-WindowsFeature Web-Server'
-#   not_if "(Get-WindowsFeature -Name Web-Server).Installed"
-# end
+powershell_script 'Install chef development kit'
+  code "choco install -y chefdk"
+end
+
+powershell_script 'Install chef development kit'
+  code "choco install -y vim"
+end
+# after this one 'berks is in the path'
+
+powershell_script 'Install IIS' do
+  code 'Add-WindowsFeature Web-Server'
+  not_if "(Get-WindowsFeature -Name Web-Server).Installed"
+end
 
 iis_site 'Default Web Site' do
-	action [:stop]
+	action [:stop, :delete]
 end
 
 iis_site "#{cookbook_name}" do
